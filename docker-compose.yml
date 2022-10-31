@@ -11,10 +11,13 @@ services:
       - 27017:27017
     restart: always
     container_name: mongodb
+    volumes:
+      - ./data:/data/db
+#      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     environment:
       MONGO_INITDB_ROOT_USERNAME: rxmsa
       MONGO_INITDB_ROOT_PASSWORD: rxmsa2022!!
-      MONGO_INITDB_DATABASE: rxmsa
+      MONGO_INITDB_DATABASE: rxtest
 
   mongo-express:
     image: mongo-express
