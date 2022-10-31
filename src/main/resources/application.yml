@@ -1,4 +1,28 @@
+server:
+  port: 1453
+spring:
+  config:
+    activate:
+      on-profile: default
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: rxmsa
+      username: rxmsa
+      password: rxmsa2022!!
+      authentication-database: admin
+
+---
 spring:
   config:
     activate:
       on-profile: local
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: rxmsa
+      username: rxmsa
+      password: rxmsa2022!!
+      authentication-database: admin
