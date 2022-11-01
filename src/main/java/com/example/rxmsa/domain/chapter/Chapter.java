@@ -15,5 +15,4 @@ public class Chapter {
     public Chapter(String name) {
         this.name = name;
     }
-
 }

@@ -8,8 +8,8 @@ import reactor.core.publisher.Flux;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/chapters")
-public class ChapterController {
+@RequestMapping("/api/chapters")
+public class ChapterApiController {
 
     private final ChapterService service;
 
