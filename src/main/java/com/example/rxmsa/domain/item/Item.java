@@ -22,6 +22,13 @@ public class Item {
 
     private String name;
 
+    private String description;
+
     private BigDecimal price;
 
+    public Item(String name, String description, BigDecimal price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 }
