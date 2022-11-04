@@ -8,4 +8,6 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
  * @date : 2022-11-02 오전 9:03
  */
 public interface ItemRepository extends ReactiveCrudRepository<Item, String>, ReactiveQueryByExampleExecutor<Item> {
+
+    Mono
 }

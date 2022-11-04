@@ -3,10 +3,12 @@ package com.example.rxmsa.domain.inventory;
 import com.example.rxmsa.domain.cart.Cart;
 import com.example.rxmsa.domain.cart.CartRepository;
 import com.example.rxmsa.domain.cart.item.CartItem;
+import com.example.rxmsa.domain.item.Item;
 import com.example.rxmsa.domain.item.ItemRepository;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
@@ -37,5 +39,13 @@ public class InventoryService {
                             return cart;
                         }))
                 .flatMap(this.cartRepository::save));
+    }
+
+    public Flux<Item> getInventory() {
+        return itemRepository.findAll();
+    }
+
+    public Mono<Item> getCart(String name) {
+        return itemRepository.findBy;
     }
 }
