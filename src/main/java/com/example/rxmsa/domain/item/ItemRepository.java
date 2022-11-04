@@ -2,6 +2,7 @@ package com.example.rxmsa.domain.item;
 
 import org.springframework.data.repository.query.ReactiveQueryByExampleExecutor;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import reactor.core.publisher.Mono;
 
 /**
  * @author : nakgyeom
@@ -9,5 +10,5 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
  */
 public interface ItemRepository extends ReactiveCrudRepository<Item, String>, ReactiveQueryByExampleExecutor<Item> {
 
-    Mono
+    Mono<Item> findByName(String name);
 }

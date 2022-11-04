@@ -45,7 +45,7 @@ public class InventoryService {
         return itemRepository.findAll();
     }
 
-    public Mono<Item> getCart(String name) {
-        return itemRepository.findBy;
+    public Mono<Cart> getCart(String id) {
+        return cartRepository.findById(id);
     }
 }

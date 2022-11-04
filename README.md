@@ -14,3 +14,8 @@
         - spring web flux
 - front
     - thymeleaf
+
+### 실행
+
+- docker-compose up -d
+ 

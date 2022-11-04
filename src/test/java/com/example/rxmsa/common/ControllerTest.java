@@ -12,6 +12,9 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.math.BigDecimal;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 /**
@@ -30,8 +33,8 @@ public class ControllerTest {
     @Test
     void homePage() {
         when(inventoryService.getInventory()).thenReturn(Flux.just( //
-                new Item("id1", "name1", "desc1", 1.99),
-                new Item("id2", "name2", "desc2", 9.99)
+                new Item("id1", "name1", "desc1", BigDecimal.ONE),
+                new Item("id2", "name2", "desc2", BigDecimal.TEN)
         ));
         when(inventoryService.getCart("My Cart")) //
                 .thenReturn(Mono.just(new Cart("My Cart")));
