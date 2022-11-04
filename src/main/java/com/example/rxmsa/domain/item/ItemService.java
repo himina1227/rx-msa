@@ -23,8 +23,6 @@ public class ItemService {
 
     private final ItemRepository repository;
 
-    private final ItemByExampleRepository itemByExampleRepository;
-
     private final ReactiveFluentMongoOperations mongoOperations;
 
     public Flux<Item> searchByExample(String name, String description, boolean useAnd) {
@@ -36,7 +34,7 @@ public class ItemService {
                 .withIgnorePaths("price");
 
         Example<Item> probe = Example.of(item, matcher);
-        return itemByExampleRepository.findAll(probe);
+        return repository.findAll(probe);
     }
 
 //    public Flux<Item> searchByFluentExample(String name, String description, boolean useAnd) {

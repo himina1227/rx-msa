@@ -28,6 +28,8 @@ public class ImageService {
 
     private final ResourceLoader resourceLoader;
 
+    private final ImageRepository repository;
+
     private static String UPLOAD_ROOT = "upload-dir";
 
     public Mono<Resource> findOne(String filename) {
