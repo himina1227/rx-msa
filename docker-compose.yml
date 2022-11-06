@@ -29,3 +29,18 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: rxmsa
       ME_CONFIG_MONGODB_ADMINPASSWORD: rxmsa2022!!
       ME_CONFIG_MONGODB_URL: mongodb://rxmsa:rxmsa2022!!@mongodb:27017/
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq-stream
+    volumes:
+      - ./.docker/rabbitmq/etc/:/etc/rabbitmq/
+      - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
+      - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "RabbitMQ-My-Cookies"
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "rxmsa2022!!"
