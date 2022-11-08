@@ -30,23 +30,23 @@ public class ControllerTest {
     @MockBean
     InventoryService inventoryService;
 
-    @Test
-    void homePage() {
-        when(inventoryService.getInventory()).thenReturn(Flux.just( //
-                new Item("id1", "name1", "desc1", BigDecimal.ONE),
-                new Item("id2", "name2", "desc2", BigDecimal.TEN)
-        ));
-        when(inventoryService.getCart("My Cart")) //
-                .thenReturn(Mono.just(new Cart("My Cart")));
-
-        client.get().uri("/").exchange()
-                .expectStatus().isOk()
-                .expectBody(String.class)
-                .consumeWith(exchangeResult -> {
-                    assertThat(
-                            exchangeResult.getResponseBody()).contains("action=\"/add/id1\"");
-                    assertThat(
-                            exchangeResult.getResponseBody()).contains("action=\"/add/id2\"");
-                });
-    }
+//    @Test
+//    void homePage() {
+//        when(inventoryService.getInventory()).thenReturn(Flux.just( //
+//                new Item("id1", "name1", "desc1", BigDecimal.ONE),
+//                new Item("id2", "name2", "desc2", BigDecimal.TEN)
+//        ));
+//        when(inventoryService.getCart("My Cart")) //
+//                .thenReturn(Mono.just(new Cart("My Cart")));
+//
+//        client.get().uri("/").exchange()
+//                .expectStatus().isOk()
+//                .expectBody(String.class)
+//                .consumeWith(exchangeResult -> {
+//                    assertThat(
+//                            exchangeResult.getResponseBody()).contains("action=\"/add/id1\"");
+//                    assertThat(
+//                            exchangeResult.getResponseBody()).contains("action=\"/add/id2\"");
+//                });
+//    }
 }

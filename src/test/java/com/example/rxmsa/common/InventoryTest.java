@@ -52,17 +52,17 @@ public class InventoryTest {
     }
 
     @Test
-    void addItemToEmptyCartShouldProduceOneCartItem() { // <1>
-        inventoryService.addItemToCart("My Cart", "item1") // <2>
-                .as(StepVerifier::create) // <3>
-                .expectNextMatches(cart -> { // <4>
+    void addItemToEmptyCartShouldProduceOneCartItem() {
+        inventoryService.addItemToCart("My Cart", "item1")
+                .as(StepVerifier::create)
+                .expectNextMatches(cart -> {
                     assertThat(cart.getCartItems()).extracting(CartItem::getQuantity) // <5>
                             .containsExactlyInAnyOrder(1);
                     assertThat(cart.getCartItems()).extracting(CartItem::getItem)
                             .containsExactly(new Item("item1", "TV tray", "Alf TV tray", BigDecimal.ONE));
 
-                    return true; // <6>
-                }) //
-                .verifyComplete(); // <7>
+                    return true;
+                })
+                .verifyComplete();
     }
 }
