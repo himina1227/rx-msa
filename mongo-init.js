@@ -1,8 +1,8 @@
-db = db.getSiblingDB('sample_db');
+db = db.getSiblingDB('rxmsa');
 
-db.createCollection('sample_collection');
+db.createCollection('comments');
 
-db.sample_collection.insertMany([
+db.comments.insertMany([
     {
         org: 'helpdev',
         filter: 'EVENT_A',
@@ -21,9 +21,26 @@ db.sample_collection.insertMany([
 ]);
 
 db.createUser({
-    user: "sample",
-    pwd: "sample",
+    user: "rxmsaUser",
+    pwd: "rxmsa2022!!",  // Or  "<cleartext password>"
     roles: [
-        { role: 'readWrite', db:"sample_db" }
-    ]
+        { role: "clusterAdmin", db: "admin" },
+        { role: "readAnyDatabase", db: "admin" },
+          "readWrite"
+    ],
+    mechanisms: [ "SCRAM-SHA-1" ]
 })
+
+// db.createUser({
+//     user: "rxmsaUser",
+//     pwd: "rxmsa2022!!",
+//     roles: [ "readWrite", "rxmsa" ]
+// })
+// adminDB = db.getSiblingDB('admin');
+// adminDB.createUser({
+//     user: "rxmsaUser",
+//     pwd: "rxmsa2022!!",
+//     roles: [
+//         { role: 'readWrite', db:"rxmsa" }
+//     ]
+// })

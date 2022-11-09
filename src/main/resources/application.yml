@@ -4,25 +4,30 @@ spring:
   config:
     activate:
       on-profile: default
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: rxmsa
-      username: rxmsa
-      password: rxmsa2022!!
-      authentication-database: admin
+
 
 ---
 spring:
+  cloud:
+    stream:
+      bindings:
+        inputSample-in-0:
+          destination: learning-spring-boot-comments  #consoumer
+          group: learning-spring-boot
+        outputSample-out-0:
+          destination: learning-spring-boot-comments  #publisher
+          group: learning-spring-boot
   config:
     activate:
       on-profile: local
   data:
     mongodb:
-      host: 127.0.0.1
-      port: 27017
-      database: rxmsa
-      username: rxmsa
-      password: rxmsa2022!!
-      authentication-database: admin
+      uri: mongodb://rxmsaUser:rxmsa2022!!@127.0.0.1:27017/rxmsa
+
+
+  rabbitmq:
+    host: 127.0.0.1
+    username: admin
+    password: rxmsa2022!!
+    port: 5672
+
