@@ -31,7 +31,6 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class InventoryTest {
 
-    @Autowired
     InventoryService inventoryService;
 
     @Mock
@@ -49,6 +48,7 @@ public class InventoryTest {
         when(itemRepository.findById(anyString())).thenReturn(Mono.just(sampleItem));
         when(cartRepository.save(any(Cart.class))).thenReturn(Mono.just(sampleCart));
 
+        inventoryService = new InventoryService(cartRepository, itemRepository); // <4>
     }
 
     @Test

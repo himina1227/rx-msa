@@ -29,7 +29,6 @@ dependencies {
         'org.springframework.boot:spring-boot-starter-webflux',
         'org.springframework.boot:spring-boot-starter-amqp',
         'org.springframework.cloud:spring-cloud-starter-stream-rabbit',
-        'org.springframework.cloud:spring-cloud-stream-reactive'
     )
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
