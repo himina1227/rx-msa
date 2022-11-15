@@ -13,6 +13,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
@@ -28,15 +30,17 @@ import static org.mockito.Mockito.when;
  * @author : nakgyeom
  * @date : 2022-11-02 오후 2:17
  */
-@ExtendWith(MockitoExtension.class)
-public class InventoryTest {
+@ExtendWith(SpringExtension.class) // <1>
+class InventoryServiceUnitTest { // <2>
+    // end::extend[]
 
-    InventoryService inventoryService;
+    // tag::class-under-test[]
+    InventoryService inventoryService; // <1>
 
-    @Mock
-    ItemRepository itemRepository;
-    @Mock
-    CartRepository cartRepository;
+    @MockBean
+    private ItemRepository itemRepository; // <2>
+
+    @MockBean private CartRepository cartRepository; // <2>
 
     @BeforeEach
     void setUp() {

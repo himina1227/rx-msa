@@ -10,6 +10,7 @@ import java.math.BigDecimal;
  * @author : nakgyeom
  * @date : 2022-11-02 오전 9:00
  */
+@EqualsAndHashCode
 @Builder
 @Getter
 @AllArgsConstructor

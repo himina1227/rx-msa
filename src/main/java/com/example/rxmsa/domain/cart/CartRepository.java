@@ -8,6 +8,4 @@ import reactor.core.publisher.Mono;
  * @date : 2022-11-02 오전 10:07
  */
 public interface CartRepository extends ReactiveCrudRepository<Cart, String> {
-
-    Mono<Cart> findById(String id);
 }

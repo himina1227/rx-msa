@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +28,6 @@ public class Cart {
     private List<CartItem> cartItems;
 
     public Cart(String id) {
-        this.id = id;
+        this(id, new ArrayList<>());
     }
 }

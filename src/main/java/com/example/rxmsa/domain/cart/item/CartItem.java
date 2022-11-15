@@ -22,7 +22,7 @@ public class CartItem {
 
     public CartItem(Item item) {
         this.item = item;
-        increment();
+        this.quantity = 1;
     }
     public void increment() {
         this.quantity++;
